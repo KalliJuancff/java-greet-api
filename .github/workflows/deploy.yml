@@ -39,7 +39,7 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.REMOTE_SSH_KEY }}
           port: 22
-          source: "target/greet-api.jar"
+          source: "greet-api.jar"
           target: ${{ secrets.UPLOAD_PATH }}
 
       - name: Reboot remote application with SSH
