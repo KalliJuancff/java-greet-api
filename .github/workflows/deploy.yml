@@ -25,6 +25,13 @@ jobs:
       - name: Build JAR
         run: mvn package -DskipTests -Djar.finalName=greet-api
 
+      - name: Check if JAR exists
+        run: |
+          if [ ! -f target/greet-api.jar ]; then
+            echo "JAR not found!"
+            exit 1
+          fi
+
       - name: Copy files to remote server with SCP
         uses: appleboy/scp-action@v0.1.7
         with:
