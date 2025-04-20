@@ -39,8 +39,9 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.REMOTE_SSH_KEY }}
           port: 22
-          source: "greet-api.jar"
+          source: "target/greet-api.jar"
           target: ${{ secrets.UPLOAD_PATH }}
+          strip-components: 1
 
       - name: Reboot remote application with SSH
         uses: appleboy/ssh-action@v1.0.0
